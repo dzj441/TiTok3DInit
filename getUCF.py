@@ -26,7 +26,7 @@ def extract_rar(rar_path, dst_dir):
     Extract a .rar archive using the system's unrar utility.
     """
     os.makedirs(dst_dir, exist_ok=True)
-    cmd = f"unrar x -idq {rar_path} {dst_dir}"
+    cmd = f"unrar x -o+ -idq {rar_path} {dst_dir}"
     print(f"Extracting {rar_path} to {dst_dir}...")
     os.system(cmd)
 
@@ -36,7 +36,7 @@ def extract_zip(zip_path, dst_dir):
     Extract a .zip archive using the system's unzip utility.
     """
     os.makedirs(dst_dir, exist_ok=True)
-    cmd = f"unzip -q {zip_path} -d {dst_dir}"
+    cmd = f"unzip -o -q {zip_path} -d {dst_dir}"
     print(f"Extracting {zip_path} to {dst_dir}...")
     os.system(cmd)
 
