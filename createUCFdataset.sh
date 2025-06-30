@@ -23,7 +23,15 @@ python3 splitUCF.py --root "$target_dir" --fold "$fold"
 # Create symlink in working_dir (link name: datasets)
 ln -sfn "$dataset_dir" "$working_dir/datasets"
 
-echo "Pipeline complete."
+echo "download Pipeline complete."
 echo "Dataset at: $download_dir"
 echo "Symlink at: $working_dir/datasets"
 echo "Train/Test split for fold $fold created under $download_dir"
+
+python3 sampleTest100.py --source-dir "$download_dir/test" --file-list "TestList100.txt" --target-dir "$download_dir/test100"
+
+mv testlist01.txt "$download_dir/"
+
+mv trainlist01.txt "$download_dir/"
+
+mv TestList100.txt "$download_dir/"
